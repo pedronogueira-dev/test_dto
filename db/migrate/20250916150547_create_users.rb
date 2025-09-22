@@ -3,12 +3,12 @@ class CreateUsers < ActiveRecord::Migration[8.0]
     create_table :users do |t|
       t.string :first_name, null: false
       t.string :last_name, null: false
-      t.string :email_address, null: false
+      t.string :email_address, null: false, index: { unique: true }
       t.string :password_digest, null: false
       t.date :birth_date, null: false
       t.integer :age, null: false
+      t.boolean :admin, default: false
       t.timestamps
     end
-    add_index :users, :email_address, unique: true
   end
 end

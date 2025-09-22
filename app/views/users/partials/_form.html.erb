@@ -1,0 +1,44 @@
+<%= form_with model: user, url: users_path, data: { turbo: true } do |f| %>
+  <% if defined?(errors) && errors.present? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% errors.each do |e| %><li><%= e %></li><% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email_address %>
+    <%= f.email_field :email_address, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :role %>
+    <%= f.select :role, [["Admin","admin"],["User","user"]], {}, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create", class: "btn btn-primary" %>
+    <%= link_to "Cancel", "#", data: { action: "click->modal#close" }, class: "btn" %>
+  </div>
+<% end %>

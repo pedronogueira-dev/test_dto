@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   has_secure_password
-+ has_many :sessions, dependent: :destroy
+  has_many :sessions, dependent: :destroy
 
   has_many :user_projects, dependent: :destroy
   has_many :projects, through: :user_projects
 
-  before_create :calculate_age#, :set_access_token
+  before_create :calculate_age# , :set_access_token
 
   private
 

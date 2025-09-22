@@ -1,0 +1,15 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Creds</th>
+    </tr>
+  </thead>
+  <tbody id="users_table_body">
+    <% users.each do |u| %>
+      <%= render "users/partials/row", user: u %>
+    <% end %>
+  </tbody>
+</table>

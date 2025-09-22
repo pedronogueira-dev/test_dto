@@ -1,0 +1,14 @@
+<%= render "users/partials/modal" do %>
+  <h3>User</h3>
+  <dl>
+    <dt>Id</dt><dd><%= @user_hash[:id] %></dd>
+    <dt>Name</dt><dd><%= @user_hash[:name] %></dd>
+    <dt>Email</dt><dd><%= @user_hash[:email] %></dd>
+    <% if @user_hash[:access_token].present? %>
+      <dt>Access Token</dt><dd><code><%= @user_hash[:access_token] %></code></dd>
+    <% end %>
+  </dl>
+  <div class="mt">
+    <%= link_to "Close", users_path, class: "btn" %>
+  </div>
+<% end %>

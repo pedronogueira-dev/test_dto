@@ -1,0 +1,6 @@
+<%= turbo_stream.update "modal" do %>
+  <%= render "users/partials/modal" do %>
+    <h3>New User</h3>
+    <%= render "users/partials/form", user: @user, errors: @errors %>
+  <% end %>
+<% end %>

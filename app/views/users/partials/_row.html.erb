@@ -1,0 +1,18 @@
+<tr id="<%= "user_#{user[:id]}" %>">
+  <td>
+    <%= link_to user[:id],
+                user_path(user[:id], format: :turbo_stream),
+                data: { turbo_stream: true } %>
+  </td>
+  <td>
+    <%= "#{user[:first_name]} #{user[:last_name]}" %>
+  </td>
+  <td>
+    <%= user[:email_address]%>
+  </td>
+  <td>
+    <% if user.key?(:access_token) && user[:access_token].present? %>
+      <span class="badge">admin</span>
+    <% end %>
+  </td>
+</tr>

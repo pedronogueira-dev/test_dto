@@ -1,0 +1,5 @@
+<%= turbo_stream.prepend "users_table_body" do %>
+  <%= render "users/partials/row", user: @user_hash %>
+<% end %>
+
+<%= turbo_stream.update "modal", "" %>

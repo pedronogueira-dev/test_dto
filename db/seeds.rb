@@ -8,16 +8,19 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.find_or_create_by!(email: "test1@example.com") do |user|
+User.find_or_create_by!(email_address: "test1@example.com") do |user|
   user.first_name = "Test"
   user.last_name = "User"
   user.birth_date = "1991-01-01"
+  user.password_digest = BCrypt::Password.create("test")
+  user.admin = true
 end
 
-User.find_or_create_by!(email: "test2@example.com") do |user|
+User.find_or_create_by!(email_address: "test2@example.com") do |user|
   user.first_name = "A"
   user.last_name = "B"
   user.birth_date = "1997-08-01"
+  user.password_digest = BCrypt::Password.create("1234")
 end
 
 

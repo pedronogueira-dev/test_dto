@@ -36,6 +36,10 @@ class ApplicationPolicy
     false
   end
 
+  def access_private_data?
+    user.present? && user.admin?
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user
@@ -50,4 +54,6 @@ class ApplicationPolicy
 
     attr_reader :user, :scope
   end
+
+  private
 end

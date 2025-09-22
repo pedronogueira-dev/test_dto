@@ -1,4 +1,4 @@
-ServiceResultDTO = Data.define(:success, :data, :errors) do
+ServiceResultDto = Data.define(:success, :data, :errors) do
   def self.success(data)
     new(success: true, data: data, errors: nil)
   end

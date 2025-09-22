@@ -1,0 +1,12 @@
+<div class="actions">
+  <%= link_to "New User",
+              new_user_path(format: :turbo_stream),
+              data: { turbo_stream: true },
+              class: "btn btn-primary" %>
+</div>
+
+<turbo-frame id="users_table">
+  <%= render "users/partials/table", users: @users %>
+</turbo-frame>
+
+<%= render "users/frames/modal_frame" %>
